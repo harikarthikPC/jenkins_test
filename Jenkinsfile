@@ -8,13 +8,13 @@ pipeline {
     }
 
     stages {
-        stage('Enable webhook){
-              steps{
-                  script{
-                      properties{[pipelineTriggers([githubPush()])
-                        }
-                     }
-               }
+            stage("Ennable webhook") {
+            steps {
+                script {
+                    properties([pipelineTriggers([githubPush()])])
+                }
+            }
+        }
         stage('pullscm') {
             steps {
                 git credentialsId: 'github', url: 'git@github.com:harikarthikPC/jenkins_test.git'
